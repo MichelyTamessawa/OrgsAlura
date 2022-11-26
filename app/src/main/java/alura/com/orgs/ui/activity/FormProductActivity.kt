@@ -1,12 +1,12 @@
-package alura.com.orgs
+package alura.com.orgs.ui.activity
 
+import alura.com.orgs.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class activity_main : AppCompatActivity() {
+class FormProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_form_product)
     }
 }
