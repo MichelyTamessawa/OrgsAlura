@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ProductsListAdapter(
     private val context: Context,
-    private val products: List<Product>
+    products: List<Product>
 ) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
+
+    private val products = products.toMutableList()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(product: Product) {
-            val name = itemView.findViewById<TextView>(R.id.name)
-            val description = itemView.findViewById<TextView>(R.id.description)
+            val name = itemView.findViewById<TextView>(R.id.editText_name)
+            val description = itemView.findViewById<TextView>(R.id.editText_description)
             val value = itemView.findViewById<TextView>(R.id.value)
             name.text = product.name
             description.text = product.description
@@ -38,6 +40,12 @@ class ProductsListAdapter(
 
     override fun getItemCount(): Int {
         return products.size
+    }
+
+    fun update(products: List<Product>) {
+        this.products.clear()
+        this.products.addAll(products)
+        notifyDataSetChanged()
     }
 
 }
